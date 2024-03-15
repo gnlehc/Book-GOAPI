@@ -1,7 +1,7 @@
 package main
 
 import (
-	"main/controller/productController"
+	productcontroller "main/controller/productController"
 	"main/models"
 
 	"github.com/gin-gonic/gin"
