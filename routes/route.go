@@ -8,7 +8,7 @@ import (
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-
+	r.GET("/")
 	// Routes
 	books := r.Group("/books")
 	{

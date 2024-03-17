@@ -28,11 +28,20 @@ func GetBook(c *gin.Context) {
 // Create new book
 func CreateBook(c *gin.Context) {
 	var book model.Book
-	if err := c.BindJSON(&book); err != nil {
+	if err := c.ShouldBindJSON(&book); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	database.GlobalDB.Create(&book)
+	book.StoreBookRecord()
+	// if err != nil {
+	// 	log.Println(err)
+	// 	c.JSON(500, gin.H{
+	// 		"StatusCode": "500",
+	// 		"Message":    "Create book error, Book Already Exists",
+	// 	})
+	// 	c.Abort()
+	// 	return
+	// }
 	c.JSON(http.StatusCreated, book)
 }
 
@@ -58,12 +67,16 @@ func PatchBook(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Record not found!"})
 		return
 	}
+
 	var updatedBook model.Book
 	if err := c.BindJSON(&updatedBook); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	// Only update fields that are provided in the request payload
 	database.GlobalDB.Model(&book).Updates(updatedBook)
+
 	c.JSON(http.StatusOK, book)
 }
 
