@@ -8,7 +8,11 @@ import (
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-	r.GET("/")
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "Welcome to your API!",
+		})
+	})
 	// Routes
 	books := r.Group("/books")
 	{
