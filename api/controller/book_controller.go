@@ -8,19 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
-	// Route requests to appropriate controller functions
-	router := gin.Default()
-	router.GET("/books", GetBooks)
-	router.GET("/books/:id", GetBook)
-	router.POST("/books", CreateBook)
-	router.PUT("/books/:id", UpdateBook)
-	router.PATCH("/books/:id", PatchBook)
-	router.DELETE("/books/:id", DeleteBook)
-
-	router.ServeHTTP(w, r)
-}
-
 // Get all books
 func GetBooks(c *gin.Context) {
 	var books []model.Book
