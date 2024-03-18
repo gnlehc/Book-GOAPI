@@ -17,11 +17,11 @@ func DatabaseConnection() (err error) {
 	// dbPassword := os.Getenv("DB_PASSWORD")
 	// dbPort := os.Getenv("DB_PORT")
 
-	dbHost := "localhost"
+	dbHost := "monorail.proxy.rlwy.net"
 	dbUsername := "postgres"
-	dbDatabase := "Book_DB"
-	dbPassword := "secret"
-	dbPort := "5432"
+	dbDatabase := "railway"
+	dbPassword := "RMtUxZCXNxrCbjfVjCsGTIyGTwMfQFUP"
+	dbPort := "55971"
 
 	fmt.Println("DB_HOST:", dbHost)
 	fmt.Println("DB_USERNAME:", dbUsername)
