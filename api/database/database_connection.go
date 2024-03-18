@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -11,17 +12,17 @@ import (
 var GlobalDB *gorm.DB
 
 func DatabaseConnection() (err error) {
-	// dbHost := os.Getenv("DB_HOST")
-	// dbUsername := os.Getenv("DB_USERNAME")
-	// dbDatabase := os.Getenv("DB_DATABASE")
-	// dbPassword := os.Getenv("DB_PASSWORD")
-	// dbPort := os.Getenv("DB_PORT")
+	dbHost := os.Getenv("DB_HOST")
+	dbUsername := os.Getenv("DB_USERNAME")
+	dbDatabase := os.Getenv("DB_DATABASE")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	dbPort := os.Getenv("DB_PORT")
 
-	dbHost := "monorail.proxy.rlwy.net"
-	dbUsername := "postgres"
-	dbDatabase := "railway"
-	dbPassword := "RMtUxZCXNxrCbjfVjCsGTIyGTwMfQFUP"
-	dbPort := "55971"
+	// dbHost := "monorail.proxy.rlwy.net"
+	// dbUsername := "postgres"
+	// dbDatabase := "railway"
+	// dbPassword := "RMtUxZCXNxrCbjfVjCsGTIyGTwMfQFUP"
+	// dbPort := "55971"
 
 	fmt.Println("DB_HOST:", dbHost)
 	fmt.Println("DB_USERNAME:", dbUsername)
