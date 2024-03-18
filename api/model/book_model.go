@@ -1,6 +1,6 @@
 package model
 
-import "Book-GOAPI/database"
+import "Book-GOAPI/api/database"
 
 type Book struct {
 	BookID int    `gorm:"primaryKey"` // gausah define di DB kalo udah pake gorm

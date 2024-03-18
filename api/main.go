@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Book-GOAPI/database"
-	"Book-GOAPI/model"
-	"Book-GOAPI/routes"
+	"Book-GOAPI/api/database"
+	"Book-GOAPI/api/model"
+	"Book-GOAPI/api/routes"
 	"log"
 )
 
