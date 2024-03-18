@@ -48,11 +48,15 @@ func CreateBook(c *gin.Context) {
 // Update book
 func UpdateBook(c *gin.Context) {
 	var book model.Book
-	if err := database.GlobalDB.Where("book_id = ?", c.Param("id")).First(&book).Error; err != nil {
+	err := database.GlobalDB.Where("book_id = ?", c.Param("id")).First(&book).Error
+	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Record not found!"})
 		return
 	}
-	if err := c.BindJSON(&book); err != nil {
+
+	// reads the request body as JSON and binds it to the book variable
+	err = c.BindJSON(&book)
+	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -63,7 +67,8 @@ func UpdateBook(c *gin.Context) {
 // Patch book
 func PatchBook(c *gin.Context) {
 	var book model.Book
-	if err := database.GlobalDB.Where("book_id = ?", c.Param("id")).First(&book).Error; err != nil {
+	err := database.GlobalDB.Where("book_id = ?", c.Param("id")).First(&book).Error
+	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Record not found!"})
 		return
 	}
