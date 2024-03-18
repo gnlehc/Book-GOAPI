@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"Book-GOAPI/api/database"
-	"Book-GOAPI/api/model"
+	"Book-GOAPI/database"
+	"Book-GOAPI/model"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

@@ -42,5 +42,3 @@ func DatabaseConnection() (err error) {
 	}
 	return err
 }
-
-

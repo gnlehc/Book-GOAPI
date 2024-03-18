@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"Book-GOAPI/api/controller"
+	"Book-GOAPI/controller"
 
 	"github.com/gin-gonic/gin"
 )
