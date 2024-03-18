@@ -5,6 +5,7 @@ import (
 	"Book-GOAPI/model"
 	"Book-GOAPI/routes"
 	"log"
+	"os"
 )
 
 func main() {
@@ -20,6 +21,10 @@ func main() {
 
 	r := routes.SetupRouter()
 
-	// Run the server
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r.Run(":" + port)
 }
